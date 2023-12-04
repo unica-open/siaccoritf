@@ -5,6 +5,7 @@
 package it.csi.siac.siaccorser.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.xml.bind.annotation.XmlType;
 
@@ -22,6 +23,8 @@ public class OperazioneAsincrona implements Serializable {
 	private Integer idOpAsinc;
 	private String messaggio;
 	private String stato;
+	private Date opasAvvio;
+	private Date opasFine;
 	
 	public Integer getIdOpAsinc() {
 		return idOpAsinc;
@@ -41,7 +44,18 @@ public class OperazioneAsincrona implements Serializable {
 	public void setStato(String stato) {
 		this.stato = stato;
 	}
-
+	public Date getOpasAvvio() {
+		return opasAvvio;
+	}
+	public void setOpasAvvio(Date opasAvvio) {
+		this.opasAvvio = opasAvvio;
+	}
+	public Date getOpasFine() {
+		return opasFine;
+	}
+	public void setOpasFine(Date opasFine) {
+		this.opasFine = opasFine;
+	}
 	
 	
 

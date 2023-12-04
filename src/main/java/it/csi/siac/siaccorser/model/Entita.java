@@ -15,8 +15,9 @@ import javax.xml.bind.annotation.XmlType;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import it.csi.siac.siaccommon.util.date.DateUtil;
+
 /**
- * Capitolo
  * 
  * @author AR
  * 
@@ -158,5 +159,19 @@ public class Entita implements Serializable {
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this,
 				ToStringStyle.MULTI_LINE_STYLE);
+	}
+	
+	public boolean isEntitaValida() {
+		return !isEntitaCancellata() && isEntitaConDataValida(); 
+	}
+
+	public boolean isEntitaCancellata()
+	{
+		return dataCancellazione != null && DateUtil.beforeNow(dataCancellazione);
+	}
+	
+	public boolean isEntitaConDataValida()
+	{
+		return !DateUtil.afterNow(dataInizioValidita) && (dataFineValidita == null || DateUtil.afterNow(dataFineValidita));
 	}
 }

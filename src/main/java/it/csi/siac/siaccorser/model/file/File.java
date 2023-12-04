@@ -6,6 +6,7 @@ package it.csi.siac.siaccorser.model.file;
 
 import javax.xml.bind.annotation.XmlType;
 
+import it.csi.siac.siaccommon.util.MimeType;
 import it.csi.siac.siaccorser.model.CORDataDictionary;
 import it.csi.siac.siaccorser.model.Entita;
 import it.csi.siac.siaccorser.model.file.StatoFile.CodiceStatoFile;
@@ -32,6 +33,17 @@ public class File extends Entita {
 		super();
 	}
 
+	public File(String nome, String mimeType, byte[] contenuto) {
+		this();
+		this.nome = nome;
+		this.mimeType = mimeType;
+		this.contenuto = contenuto;
+	}
+
+	public File(String nome, MimeType mimeType, byte[] contenuto) {
+		this(nome, mimeType.getMimeType(), contenuto);
+	}
+	
 	public void setIdTipo(Integer idTipo) {
 		setTipo(new TipoFile(idTipo));
 	}
@@ -132,6 +144,10 @@ public class File extends Entita {
 
 	public boolean isElaboratoConErrori() {
 		return statoFile.getCodiceEnum() == CodiceStatoFile.ELABORATO_CON_ERRORI;
+	}
+
+	public void setMimeType(MimeType mimeType) {
+		setMimeType(mimeType.getMimeType());		
 	}
 
 }

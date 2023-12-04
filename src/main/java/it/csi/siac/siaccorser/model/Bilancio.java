@@ -6,12 +6,6 @@ package it.csi.siac.siaccorser.model;
 
 import javax.xml.bind.annotation.XmlType;
 
-/**
- * Bilancio
- * 
- * @author rmontuori
- * 
- */
 @XmlType(namespace = CORDataDictionary.NAMESPACE)
 public class Bilancio extends Entita {
 
@@ -43,4 +37,39 @@ public class Bilancio extends Entita {
 		return b;
 	}
 
+	public StatoBilancio getStatoAttuale() {
+		return faseEStatoAttualeBilancio == null ? null : faseEStatoAttualeBilancio.getStatoBilancio();
+	}
+
+	public FaseBilancio getFaseAttuale() {
+		return faseEStatoAttualeBilancio == null ? null : faseEStatoAttualeBilancio.getFaseBilancio();
+	}
+	
+	public void setFaseAttuale(FaseBilancio faseBilancio) {
+		if (faseEStatoAttualeBilancio == null) {
+			faseEStatoAttualeBilancio = new FaseEStatoAttualeBilancio();
+		}
+		
+		faseEStatoAttualeBilancio.setFaseBilancio(faseBilancio);
+	}
+	
+	public boolean isInFaseAttuale(FaseBilancio...fasiBilancio) {
+		if (fasiBilancio == null) {
+			return false;
+		}		
+		
+		FaseBilancio faseAttuale = getFaseAttuale();
+		
+		if (faseAttuale == null) {
+			throw new IllegalStateException("Fase bilancio");
+		}		
+
+		for (FaseBilancio faseBilancio : fasiBilancio) {
+			if (faseBilancio.equals(faseAttuale)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
 }

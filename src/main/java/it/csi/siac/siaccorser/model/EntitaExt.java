@@ -23,9 +23,9 @@ public class EntitaExt extends Entita {
 	private static final long serialVersionUID = 3395435527405505347L;
 	
 	
-	private String loginCreazione;//new
-	private String loginModifica;//new
-	private String loginCancellazione;//new
+	private String loginCreazione;
+	private String loginModifica;
+	private String loginCancellazione;
 	
 	
 	

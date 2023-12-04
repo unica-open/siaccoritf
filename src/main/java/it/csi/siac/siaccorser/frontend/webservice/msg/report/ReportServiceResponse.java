@@ -11,5 +11,4 @@ import it.csi.siac.siaccorser.model.ServiceResponse;
 
 @XmlType(namespace = CORSvcDictionary.NAMESPACE)
 public class ReportServiceResponse extends ServiceResponse {
-	// Nulla da aggiungere
 }

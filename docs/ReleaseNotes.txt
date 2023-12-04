@@ -4,7 +4,34 @@ SIAC COR itf
 
 Funzionalita' rilasciate
 --------------------------
-build 22/11/2019 versione 4.5.0
+build 30/06/2020 versione 4.12.0
+ SIAC-7631
+
+build 30/05/2020 versione 4.11.0
+ SIAC-7633
+
+build 30/04/2020 versione 4.10.0
+ open source
+
+build 18/03/2020 versione 4.9.0
+ SIAC-7361
+
+build 28/01/2020 versione 4.8.0
+ SIAC-7252
+
+build 18/12/2019 versione 4.7.0
+ SIAC-6884
+
+build 06/12/2019 versione 4.6.1
+ SIAC-6884
+
+build 27/11/2019 versione 4.6.0
+ SIAC-6881
+
+build 15/11/2019 versione 4.5.1
+ SIAC-6881
+
+build 22/10/2019 versione 4.5.0
  SIAC-6888
 
 build 24/07/2019 versione  4.4.0

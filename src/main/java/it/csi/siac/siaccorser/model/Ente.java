@@ -34,7 +34,15 @@ public class Ente extends Entita {
 	private String annoAvvioSistema;
 	private List<StrutturaAmministrativoContabile> strutture = new ArrayList<StrutturaAmministrativoContabile>();
 	//private List<GestioneLivello> gestioneLivello = new ArrayList<GestioneLivello>();
+	 /**
+     * @deprecated
+     * This method is no longer used.
+     * <p> See {@link it.csi.siac.siaccorser.model.ParametroConfigurazioneEnteEnum}.
+     */	
+	@Deprecated
 	private Map<TipologiaGestioneLivelli, String> gestioneLivelli = new HashMap<TipologiaGestioneLivelli, String>();
+	
+	private Map<ParametroConfigurazioneEnteEnum, String> parametriConfigurazione = new HashMap<ParametroConfigurazioneEnteEnum, String>();
 	
 	public void setNome(String nome) {
 		this.nome = nome;
@@ -138,6 +146,18 @@ public class Ente extends Entita {
 	public void setGestioneLivelli(
 			Map<TipologiaGestioneLivelli, String> gestioneLivelli) {
 		this.gestioneLivelli = gestioneLivelli;
+	}
+
+	public Map<ParametroConfigurazioneEnteEnum, String> getParametriConfigurazione() {
+		return parametriConfigurazione;
+	}
+
+	public String getParametroConfigurazione(ParametroConfigurazioneEnteEnum parametroConfigurazioneEnte) {
+		return parametriConfigurazione != null ? parametriConfigurazione.get(parametroConfigurazioneEnte) : null;
+	}
+
+	public void setParametriConfigurazione(Map<ParametroConfigurazioneEnteEnum, String> parametriConfigurazione) {
+		this.parametriConfigurazione = parametriConfigurazione;
 	}
 
 	

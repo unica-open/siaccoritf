@@ -8,7 +8,7 @@ import java.util.Map;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccommon.util.CoreUtils;
+import it.csi.siac.siaccommon.util.CoreUtil;
 
 
 /**
@@ -18,6 +18,12 @@ import it.csi.siac.siaccommon.util.CoreUtils;
  * 
  */
 @XmlType(namespace = CORDataDictionary.NAMESPACE)
+/**
+ * @deprecated
+ * This method is no longer used.
+ * <p> See {@link it.csi.siac.siaccorser.model.ParametroConfigurazioneEnteEnum}.
+ */	
+@Deprecated
 public enum TipologiaGestioneLivelli {
 
 	LIVELLO_GESTIONE_BILANCIO("GEST_BIL"),
@@ -47,6 +53,7 @@ public enum TipologiaGestioneLivelli {
 	
 	ACCREDITO_CONTO_BANCA("ACCREDITO_CONTO_BANCA"),
 	ACCREDITO_CONTANTI("ACCREDITO_CONTANTI"),
+	ACCREDITO_GIRO_FONDI("ACCREDITO_GIRO_FONDI"),
 	
 	MESSAGGIO_INFORMATIVO("MESSAGGIO_INFORMATIVO"),
 	
@@ -79,12 +86,22 @@ public enum TipologiaGestioneLivelli {
 	
 	
 	//SIAC-6884
-	REGIONE_PIEMONTE_INS_CAP_VAR_DEC("REGIONE_PIEMONTE_INS_CAP_VAR_DEC")
+	REGIONE_PIEMONTE_INS_CAP_VAR_DEC("REGIONE_PIEMONTE_INS_CAP_VAR_DEC"),
+	
+	//SIAC-8191
+	UPLOAD_MULTIPLI_PREVISIONE_CHIUDERE("UPLOAD_MULTIPLI_PREVISIONE_CHIUDERE"),
+	
+	//SIAC-8017-CMTO
+	GESTIONE_CONTI_VINCOLATI("GESTIONE_CONTI_VINCOLATI"),
+	
+	// SIAC-8661
+	TEFA_ANNO("TEFA_ANNO"),
+	
 	;
 	
 	private String codice;
 
-	private static final Map<String, TipologiaGestioneLivelli> REVERSE_MAP = CoreUtils
+	private static final Map<String, TipologiaGestioneLivelli> REVERSE_MAP = CoreUtil
 			.getEnumMap(TipologiaGestioneLivelli.class);
 
 	TipologiaGestioneLivelli(String codice) {
@@ -97,7 +114,7 @@ public enum TipologiaGestioneLivelli {
 
 	/**
 	 * Attenzione: il fromCodice non ritorna la referenza di TipologiaGestioneLivelli 
-	 * per codice uguale a GEST_BIL, xchè la mappa costruita dal CoreUtils.getEnumMap
+	 * per codice uguale a GEST_BIL, xchè la mappa costruita dal CoreUtil.getEnumMap
 	 * è costituita da Key= nome elemento enum (es. GESTIONE_LIVELLO_BILANCIO) e Value= Istanza tipologia gestione livello
 	 * (corrispondente quindi per l'esempio della key sopra citata è GESTIONE_LIVELLO_BILANCIO)
 	 * @param codice
@@ -114,5 +131,5 @@ public enum TipologiaGestioneLivelli {
 //		}
 		return REVERSE_MAP.get(codice);
 	}
-
+	
 }

@@ -41,4 +41,6 @@ public class TipoFile extends Codifica {
 	public void setAzioneServizio(Azione azioneServizio) {
 		this.azioneServizio = azioneServizio;
 	}
+	
+	
 }

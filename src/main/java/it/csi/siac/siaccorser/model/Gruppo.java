@@ -16,14 +16,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlType(namespace = CORDataDictionary.NAMESPACE)
-public class Gruppo extends Entita {
+public class Gruppo extends EntitaEnte {
 
 	private static final long serialVersionUID = -1227817425217993647L;
 	private String nome;
 	private String descrizione;
 	private List<Account> accounts = new ArrayList<Account>();
 	private List<RuoloGruppo> ruoli = new ArrayList<RuoloGruppo>();
-	private Ente ente;
 
 	@Override
 	public List<Errore> valida() {
@@ -69,12 +68,5 @@ public class Gruppo extends Entita {
 		this.descrizione = descrizione;
 	}
 
-	public Ente getEnte() {
-		return ente;
-	}
-
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
 
 }

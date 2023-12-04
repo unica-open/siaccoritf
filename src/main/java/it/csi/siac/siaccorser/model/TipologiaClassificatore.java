@@ -8,7 +8,7 @@ import java.util.Map;
 
 import javax.xml.bind.annotation.XmlType;
 
-import it.csi.siac.siaccommon.util.CoreUtils;
+import it.csi.siac.siaccommon.util.CoreUtil;
 
 
 /**
@@ -26,6 +26,8 @@ public enum TipologiaClassificatore {
 	CLASSIFICATORE_3, CLASSIFICATORE_4, CLASSIFICATORE_5, CLASSIFICATORE_6, 
 	CLASSIFICATORE_7, CLASSIFICATORE_8, CLASSIFICATORE_9, CLASSIFICATORE_10,
 	TIPO_AMBITO,TIPO_IMPRESA, TIPO_AVVISO,
+	//SIAC-7192
+	RISORSA_ACCANTONATA,
 	
 	/**
 	 * 26/11/2013 Aggiunti i nuovi classificatori di fin
@@ -76,7 +78,7 @@ public enum TipologiaClassificatore {
 
 	;
 	
-	private static final Map<String, TipologiaClassificatore> REVERSE_MAP = CoreUtils
+	private static final Map<String, TipologiaClassificatore> REVERSE_MAP = CoreUtil
 			.getEnumMap(TipologiaClassificatore.class);
 
 

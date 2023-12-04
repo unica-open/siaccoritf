@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlType(namespace = CORDataDictionary.NAMESPACE)
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Account extends Entita {
+public class Account extends EntitaEnte {
 
 	private static final long serialVersionUID = 3585679632121316048L;
 	
@@ -30,7 +30,7 @@ public class Account extends Entita {
 	private String indirizzoMail;
 	@XmlTransient
 	private Operatore operatore;
-	private Ente ente;
+
 	@XmlTransient
 	private List<Gruppo> gruppi = new ArrayList<Gruppo>();
 	@XmlTransient
@@ -69,13 +69,6 @@ public class Account extends Entita {
 		this.indirizzoMail = indirizzoMail;
 	}
 
-	public Ente getEnte() {
-		return ente;
-	}
-
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
 
 	public List<Gruppo> getGruppi() {
 		return gruppi;

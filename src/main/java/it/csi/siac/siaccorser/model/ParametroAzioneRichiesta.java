@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlType;
  * @version $Id: $
  */
 @XmlType(namespace = CORDataDictionary.NAMESPACE)
-public class ParametroAzioneRichiesta extends Entita {
+public class ParametroAzioneRichiesta extends EntitaEnte {
 
 	private static final long serialVersionUID = -814627245761446975L;
 	
@@ -27,23 +27,8 @@ public class ParametroAzioneRichiesta extends Entita {
 
 	private String nome;
 	private String valore;
-	private Ente ente;
 	
 	
-
-	/**
-	 * @return the ente
-	 */
-	public Ente getEnte() {
-		return ente;
-	}
-
-	/**
-	 * @param ente the ente to set
-	 */
-	public void setEnte(Ente ente) {
-		this.ente = ente;
-	}
 
 	public String getNome() {
 		return nome;

@@ -10,8 +10,9 @@ import it.csi.siac.siaccorser.model.Messaggio;
 
 public enum MessaggioCore implements TipoMessaggio {
 
-	// TODO: Messaggio di esempio
-	MESSAGGIO_DI_SISTEMA("WAR_COR_0001", "Messaggio di sistema: {0}");
+	MESSAGGIO_DI_SISTEMA("WAR_COR_0001", "Messaggio di sistema: {0}"),
+	OPERAZIONE_COMPLETATA("CRU_CON_2001", "L''operazione e'' stata completata con successo"),
+	;
 
 	private final String codice;
 	private final String messaggio;
@@ -28,10 +29,7 @@ public enum MessaggioCore implements TipoMessaggio {
 
 	@Override
 	public Messaggio getMessaggio(Object... args) {
-
-		Messaggio errore = new Messaggio(codice, MessageFormat.format(
-				messaggio, args));
-		return errore;
+		return new Messaggio(codice, MessageFormat.format(messaggio, args));
 	}
 
 }

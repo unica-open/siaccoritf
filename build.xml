@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--
 SPDX-FileCopyrightText: Copyright 2020 | CSI Piemonte
 SPDX-License-Identifier: EUPL-1.2
@@ -25,7 +26,7 @@ SPDX-License-Identifier: EUPL-1.2
 	<!-- -->
 	<target name="load-dependencies" description="carica le dipendenze tramite ivy" depends="resolve-dependencies">
 		<tstamp />
-		<ivy:retrieve pattern="${build.lib}/[conf]/[artifact].[ext]" conf="runtime,provided" />
+		<ivy:retrieve pattern="${build.lib}/[conf]/[artifact].[ext]" conf="provided" />
 	</target>
 
 	<!-- -->
@@ -35,7 +36,7 @@ SPDX-License-Identifier: EUPL-1.2
 	<!-- -->
 	<target name="load-local-dependencies" description="carica le dipendenze tramite ivy" depends="resolve-dependencies">
 		<tstamp />
-		<ivy:retrieve pattern="${local.lib}/[conf]/[artifact].[ext]" conf="runtime,provided,test,src" />
+		<ivy:retrieve pattern="${local.lib}/[conf]/[artifact].[ext]" conf="provided,test" />
 	</target>
 
 	<!-- -->
@@ -119,9 +120,7 @@ SPDX-License-Identifier: EUPL-1.2
 		<property name="web-manifest-dir" value="${manifest-dir}/web" />
 
 		<path id="class.path">
-			<!--<fileset dir="${build.lib}/dev" />-->
 			<fileset dir="${build.lib}/provided" />
-			<fileset dir="${build.lib}/runtime" />
 		</path>
 		
 	</target>
@@ -282,24 +281,19 @@ SPDX-License-Identifier: EUPL-1.2
 			basedir="${classes}" manifest="${web-manifest-dir}/MANIFEST.MF"
 		/>
 
-		
-		<condition property="move.jar.to.local">
-			<equals arg1="${target}" arg2="local" />
+		<condition property="copy.jar.to.local">
+			<equals arg1="${copy.jar.to.local}" arg2="yes" />
 		</condition>
-		
-		<antcall target="move_jar_to_local" />
+		<antcall target="copy_jar_to_local" />
 		
 	</target>
 		
-	<target name="move_jar_to_local" if="move.jar.to.local">
-		<echo message="moving ${web-module-name}-${product-version}.jar to ${ivy.local}/${web-module-name}-LOCAL.jar"/>
-
-	  	<move 
-			file="${archives-target}/${web-module-name}-${product-version}.jar" 
-			tofile="${ivy.local}/${web-module-name}-LOCAL.jar"
-			overwrite="yes" >
-		</move>
+	<target name="copy_jar_to_local" if="copy.jar.to.local">
+		<echo message="copia del jar dell'itf nel repository locale di ivy"/>
+		<copy todir="${ivy.local}" file="${archives-target}/${web-module-name}-${product-version}.jar" overwrite="true" verbose="true"></copy>
+		<move file="${ivy.local}/${web-module-name}-${product-version}.jar" tofile="${ivy.local}/${web-module-name}.jar" overwrite="true" verbose="true"></move>
     </target>
+		
 	
 	
 	<!-- -->

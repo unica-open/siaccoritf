@@ -24,9 +24,46 @@ public class StrutturaAmministrativoContabile extends ClassificatoreGerarchico {
 	private String assessorato;
 
 	private List<StrutturaAmministrativoContabile> subStrutture = new ArrayList<StrutturaAmministrativoContabile>();
+	//SIAC-7633
+	private String codicePadre;
+	private Integer uidPadre;
+	private TipoClassificatore tipoClassificatorePadre;
+	private String descrizionePadre;
+
+	public String getDescrizionePadre() {
+		return descrizionePadre;
+	}
+
+	public void setDescrizionePadre(String descrizionePadre) {
+		this.descrizionePadre = descrizionePadre;
+	}
+
+	public String getCodicePadre() {
+		return codicePadre;
+	}
+
+	public void setCodicePadre(String codicePadre) {
+		this.codicePadre = codicePadre;
+	}
+
+	public Integer getUidPadre() {
+		return uidPadre;
+	}
+
+	public void setUidPadre(Integer uidPadre) {
+		this.uidPadre = uidPadre;
+	}
 
 	public StrutturaAmministrativoContabile(String codice, String descrizione) {
 		super(codice, descrizione);
+	}
+
+	public TipoClassificatore getTipoClassificatorePadre() {
+		return tipoClassificatorePadre;
+	}
+
+	public void setTipoClassificatorePadre(TipoClassificatore tipoClassificatorePadre) {
+		this.tipoClassificatorePadre = tipoClassificatorePadre;
 	}
 
 	public StrutturaAmministrativoContabile() {
@@ -57,5 +94,4 @@ public class StrutturaAmministrativoContabile extends ClassificatoreGerarchico {
 	public void setDataFineValiditaSac(Date dataFineValidita) {
 		setDataFineValidita(dataFineValidita);
 	}
-
 }

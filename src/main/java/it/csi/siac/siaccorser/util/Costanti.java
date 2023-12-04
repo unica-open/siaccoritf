@@ -4,7 +4,7 @@
 */
 package it.csi.siac.siaccorser.util;
 
-
+// simulazione rilascio
 
 public final class Costanti {
 	

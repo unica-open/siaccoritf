@@ -11,6 +11,8 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
+import it.csi.siac.siaccommon.model.UserSessionInfo;
+
 /**
  * Base di tutte le richieste
  * 
@@ -22,6 +24,7 @@ public abstract class ServiceRequest {
 	private Richiedente richiedente;
 	private Date dataOra;
 	private Integer annoBilancio; // FIXME
+	private UserSessionInfo userSessionInfo;
 	
 	/**
 	 * Può essere implementata dalle sottoclassi per gestire la velidazione
@@ -59,5 +62,26 @@ public abstract class ServiceRequest {
 
 	public void setAnnoBilancio(Integer annoBilancio) {
 		this.annoBilancio = annoBilancio;
+	}
+
+	public UserSessionInfo getUserSessionInfo() {
+		return userSessionInfo;
+	}
+
+	public void setUserSessionInfo(UserSessionInfo userSessionInfo) {
+		this.userSessionInfo = userSessionInfo;
+	}
+	
+	public Ente getEnte() {
+		
+		if(richiedente == null) {
+			return null;
+		}
+		
+		if(richiedente.getAccount() == null) {
+			return null;
+		}
+		
+		return richiedente.getAccount().getEnte();
 	}
 }

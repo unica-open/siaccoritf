@@ -25,6 +25,8 @@ import it.csi.siac.siaccorser.frontend.webservice.msg.GetAzioneRichiesta;
 import it.csi.siac.siaccorser.frontend.webservice.msg.GetAzioneRichiestaResponse;
 import it.csi.siac.siaccorser.frontend.webservice.msg.GetNotifichePendenti;
 import it.csi.siac.siaccorser.frontend.webservice.msg.GetNotifichePendentiResponse;
+import it.csi.siac.siaccorser.frontend.webservice.msg.GetParametroConfigurazioneEnte;
+import it.csi.siac.siaccorser.frontend.webservice.msg.GetParametroConfigurazioneEnteResponse;
 import it.csi.siac.siaccorser.frontend.webservice.msg.GetProcessiEntita;
 import it.csi.siac.siaccorser.frontend.webservice.msg.GetProcessiEntitaResponse;
 import it.csi.siac.siaccorser.frontend.webservice.msg.GetRichiedente;
@@ -47,6 +49,8 @@ import it.csi.siac.siaccorser.frontend.webservice.msg.UpdateCruscotto;
 import it.csi.siac.siaccorser.frontend.webservice.msg.UpdateCruscottoResponse;
 import it.csi.siac.siaccorser.frontend.webservice.msg.UpdateVariabiliDiProcesso;
 import it.csi.siac.siaccorser.frontend.webservice.msg.UpdateVariabiliDiProcessoResponse;
+import it.csi.siac.siaccorser.frontend.webservice.msg.attpendenti.RicercaSinteticaGruppoAttivitaPendentiVariazione;
+import it.csi.siac.siaccorser.frontend.webservice.msg.attpendenti.RicercaSinteticaGruppoAttivitaPendentiVariazioneResponse;
 
 /**
  * SI del servizio Core
@@ -125,6 +129,10 @@ public interface CoreService {
 	
 	@WebMethod
 	@WebResult
+	GetParametroConfigurazioneEnteResponse getParametroConfigurazioneEnte(GetParametroConfigurazioneEnte request);
+	
+	@WebMethod
+	@WebResult
 	GetRuoliResponse getRuoliAccount(@WebParam GetRuoli request);
 
 	@WebMethod
@@ -134,6 +142,10 @@ public interface CoreService {
 	@WebMethod
 	@WebResult
 	GetVariazioniResponse getVariazioniBySac(@WebParam GetVariazioni request);
+	
+	@WebMethod
+	@WebResult
+	RicercaSinteticaGruppoAttivitaPendentiVariazioneResponse ricercaSinteticaGruppoAttivitaPendentiVariazione(@WebParam RicercaSinteticaGruppoAttivitaPendentiVariazione request);
 
 	
 	

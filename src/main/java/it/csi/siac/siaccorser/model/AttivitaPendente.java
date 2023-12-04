@@ -32,6 +32,9 @@ public class AttivitaPendente implements Serializable {
 	private Date dataAperturaProposta;
 	private Date dataChiusuraProposta;
 	private String direzioneProponente;
+	//SIAC-8332
+	private int uidEntita;
+	private String tipologia;
 	
 	
 	
@@ -130,5 +133,23 @@ public class AttivitaPendente implements Serializable {
 	public void setDirezioneProponente(String direzioneProponente) {
 		this.direzioneProponente = direzioneProponente;
 	}
+
+	public int getUidEntita() {
+		return uidEntita;
+	}
+
+	public void setUidEntita(int uidEntita) {
+		this.uidEntita = uidEntita;
+	}
+
+	public String getTipologia() {
+		return tipologia;
+	}
+
+	public void setTipologia(String tipologia) {
+		this.tipologia = tipologia;
+	}
+	
+	
 
 }

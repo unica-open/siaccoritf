@@ -24,6 +24,8 @@ public class InserisciOperazioneAsinc extends ServiceRequest {
 	private Account account;
 	private Ente ente;
 	private AzioneRichiesta azioneRichiesta;
+	//SIAC-8264
+	private Integer uidVariazioneImportoCapitolo;
 
 	public AzioneRichiesta getAzioneRichiesta() {
 		return azioneRichiesta;
@@ -49,4 +51,12 @@ public class InserisciOperazioneAsinc extends ServiceRequest {
 		this.account = account;
 	}
 
+	public Integer getUidVariazioneImportoCapitolo() {
+		return uidVariazioneImportoCapitolo;
+	}
+
+	public void setUidVariazioneImportoCapitolo(Integer uidVariazioneImportoCapitolo) {
+		this.uidVariazioneImportoCapitolo = uidVariazioneImportoCapitolo;
+	}
+	
 }

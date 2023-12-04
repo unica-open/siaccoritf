@@ -60,4 +60,7 @@ public abstract class Codifica extends Entita {
 		this.annoCatalogazione = annoCatalogazione;
 	}
 
+	public String getCodiceDescrizione() {
+		return codice + " - " + descrizione;
+	}
 }

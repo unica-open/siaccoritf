@@ -61,5 +61,9 @@ public class Messaggio implements Serializable{
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
+	
+	public String getTesto() {
+		return getCodice() + " - " + getDescrizione();
+	}
 
 }

@@ -78,7 +78,8 @@ public abstract class ServiceResponse {
 	}
 
 	public void addErroreDiSistema(Throwable e) {
-		errori.add(ErroreCore.ERRORE_DI_SISTEMA.getErrore(e.getMessage()));
+		Errore errore = ErroreCore.ERRORE_DI_SISTEMA.getErrore(e.getMessage());
+		errori.add(errore);
 	}
 
 	public boolean verificatoErroreDiSistema() {

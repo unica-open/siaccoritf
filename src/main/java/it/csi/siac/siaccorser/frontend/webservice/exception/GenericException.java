@@ -9,51 +9,30 @@ import java.util.List;
 
 import it.csi.siac.siaccorser.model.Errore;
 
-/**
- * Classe astratta per la gestione delle eccezioni
- * 
- * @author Spin Servizi per l'innovazione
- * 
- */
 public abstract class GenericException extends RuntimeException {
 
 	private static final long serialVersionUID = -6887572962078816981L;
 	private final List<Errore> errori;
 
-	/**
-	 * Costruttore per singolo errore
-	 * 
-	 * @param errore
-	 */
-	public GenericException(Errore errore) {
-		this();
-		errori.add(errore);
-	}
-
-	/**
-	 * Costruttore per lista di errori
-	 * 
-	 * @param errori
-	 */
-	public GenericException(List<Errore> errori) {
-		this.errori = errori;
-	}
-
 	protected GenericException() {
-		this.errori = new ArrayList<Errore>();
-	}
-
-	/**
-	 * @return the errori
-	 */
-	public List<Errore> getErrori() {
-		return errori;
+		this((String)null);
 	}
 
 	public GenericException(String message) {
 		super(message);
 		this.errori = new ArrayList<Errore>();
 	}
-	
-	
+
+	public GenericException(Errore errore) {
+		this(errore.getTesto());
+		errori.add(errore);
+	}
+
+	public GenericException(List<Errore> errori) {
+		this.errori = errori;
+	}
+
+	public List<Errore> getErrori() {
+		return errori;
+	}
 }
